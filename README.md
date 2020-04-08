@@ -85,12 +85,7 @@ public class MyView extends View {
         float b = bottom/mViewH *bh;
 
         mRect = new RectF(l,t,r,b);
-//        Log.d("lylog"," mViewW "+mViewW+" mViewH "+mViewH);
-//        Log.d("lylog"," bw "+bw+" bh "+bh);
-//        Log.d("lylog","  "+left+"  "+top+"  "+right+"  "+bottom);
-//        Log.d("lylog","  "+l+"  "+t+"  "+r+"  "+b);
-
-
+        
         Paint pb = new Paint();
         cacheBitmap = Bitmap.createBitmap(right-left,bottom-top, Bitmap.Config.ARGB_8888);
         Canvas bc = new Canvas(cacheBitmap);
@@ -203,12 +198,17 @@ public class MyView extends View {
 
 
 
-class BBctivity :BaseActivty(){
-    override fun initView() {
+
+    class BBctivity :BaseActivty(){
+  
+        override fun initView() {
 
         val b = MyView.getBitmapRect()
         val bmp = BitmapFactory.decodeResource(resources, R.mipmap.test)
-//        iv.setImageBitmap(Bitmap.createBitmap(bmp,b.left.toInt(),b.top.toInt(),b.right.toInt()-b.left.toInt(),b.bottom.toInt()-b.top.toInt()))
+       //iv.setImageBitmap(Bitmap.createBitmap(bmp,b.left.toInt(),b.top.toInt(),b.right.toInt()-
+
+        b.left.toInt(),b.bottom.toInt()-b.top.toInt()))
+        
         iv.setImageBitmap(MyView.getBitmap())
     }
 

@@ -1,19 +1,6 @@
 # Image-cropping
 
 
-package com.example.vendor.nextapp.view;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.*;
-import android.media.MediaMetadataRetriever;
-import android.support.annotation.Nullable;
-import android.util.AttributeSet;
-import android.util.EventLog;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import com.example.vendor.nextapp.R;
 
 /**
  * Created by ly on 2020/4/7 11:06

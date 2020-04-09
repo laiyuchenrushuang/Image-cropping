@@ -5,7 +5,8 @@
 /**
  * Created by ly on 2020/4/7 11:06
  */
-public class MyView extends View {
+      
+    public class MyView extends View {
 
     private static RectF mRect; //框内矩形图片
     private static RectF mRect1 = new RectF(); //框内矩形图片(测试 getBitmap())
@@ -86,10 +87,10 @@ public class MyView extends View {
         float b = bottom / mViewH * bh;
 
         mRect = new RectF(l, t, r, b);  // 相对于图片  做比例转化
-//        Log.d("lylog"," mViewW "+mViewW+" mViewH "+mViewH);
-//        Log.d("lylog"," bw "+bw+" bh "+bh);
+       //  Log.d("lylog"," mViewW "+mViewW+" mViewH "+mViewH);
+       //  Log.d("lylog"," bw "+bw+" bh "+bh);
         Log.d("lylog", "  " + left + "  " + top + "  " + right + "  " + bottom);
-//        Log.d("lylog","  "+l+"  "+t+"  "+r+"  "+b);
+       //  Log.d("lylog","  "+l+"  "+t+"  "+r+"  "+b);
 
 
         //相对于视图做比例迁移
@@ -171,11 +172,11 @@ public class MyView extends View {
 
     private void setViewOnFocus(float x, float y) {
         Log.d("lylog", " setViewOnFocus ");
-//        Log.d("lylog", " x = " + x + "  y = " + y);
-//        Log.d("lylog", " dw1 = " + dw + "  dh1 = " + dh);
-//        Log.d("lylog", " dw2 = " + (right - left) + "  dh2 = " + (bottom - top));
-//        Log.d("lylog", " vfocusX = " + vfocusX + "  vfocusY = " + vfocusY);
-//        Log.d("lylog", "setViewOnFocus  left " + left + " right " + right);
+       // Log.d("lylog", " x = " + x + "  y = " + y);
+       // Log.d("lylog", " dw1 = " + dw + "  dh1 = " + dh);
+       // Log.d("lylog", " dw2 = " + (right - left) + "  dh2 = " + (bottom - top));
+       // Log.d("lylog", " vfocusX = " + vfocusX + "  vfocusY = " + vfocusY);
+       // Log.d("lylog", "setViewOnFocus  left " + left + " right " + right);
 
 
         if (dw != right - left || dh != bottom - top) {  // 手指抖动 引起的误差情况 矩形长宽一变化 就没衡量的标准了
@@ -247,33 +248,8 @@ public class MyView extends View {
         } else {
             bottom = (int) (mViewH - defaultDis);
         }
-//        }
+    // }
 
-
-//        if (rw > 0 && rh > 0) {
-//            int newleft, newright, newtop, newbottom;
-//
-//            newleft = (int) (x - rw / 2);
-//            newright = (int) (x + rw / 2);
-//
-//            newtop = (int) (y - rh / 2);
-//            newbottom = (int) (y + rh / 2);
-//
-//            if (newleft > 0) {
-//                left = newleft;
-//            }
-//
-//            if (newright < mViewW) {
-//                right = newright;
-//            }
-//
-//            if (newtop > 0) {
-//                top = newtop;
-//            }
-//            if (newbottom < mViewH) {
-//                bottom = newbottom;
-//            }
-//        }
     }
 
     Canvas drawBmCanvas;

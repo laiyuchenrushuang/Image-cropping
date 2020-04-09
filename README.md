@@ -1,13 +1,6 @@
 # Image-cropping
-
-
-
-/**
- * Created by ly on 2020/4/7 11:06
- */
       
-      
-public class MyView extends View {
+    public class MyView extends View {
  
     private static RectF mRect; //框内矩形图片
     

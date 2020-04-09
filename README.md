@@ -6,9 +6,11 @@
  * Created by ly on 2020/4/7 11:06
  */
       
-    public class MyView extends View {
-
+      
+public class MyView extends View {
+ 
     private static RectF mRect; //框内矩形图片
+    
     private static RectF mRect1 = new RectF(); //框内矩形图片(测试 getBitmap())
 
     private static Bitmap cacheBitmap;

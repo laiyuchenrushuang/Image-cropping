@@ -6,6 +6,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 /**
@@ -18,7 +19,7 @@ public class BActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getView();
     }
 
@@ -27,9 +28,11 @@ public class BActivity extends AppCompatActivity {
             iv = findViewById(R.id.iv);
             RectF b = MyView.getBitmapRect();
             Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.test);
-            iv.setImageBitmap(Bitmap.createBitmap(bmp, (int) b.left, (int) b.top, (int) b.right - (int) b.left, (int) b.bottom - (int) b.top));
-//            iv.setImageBitmap(MyView.getBitmap());
-            bmp.recycle();
+//            iv.setImageBitmap(Bitmap.createBitmap(bmp, (int) b.left, (int) b.top, (int) b.right - (int) b.left, (int) b.bottom - (int) b.top));
+            Bitmap bb = MyView.getBitmap();
+            iv.setImageBitmap(bb);
+//            bmp.recycle();
+//            bb.recycle();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -24,6 +24,7 @@ import android.widget.Toast;
 public class MyView extends View {
 
     private static RectF mRect; //框内矩形图片
+    private static RectF mRect1 = new RectF(); //框内矩形图片(测试 getBitmap())
 
     private static Bitmap cacheBitmap;
 
@@ -100,12 +101,18 @@ public class MyView extends View {
         float r = right / mViewW * bw;
         float b = bottom / mViewH * bh;
 
-        mRect = new RectF(l, t, r, b);
+        mRect = new RectF(l, t, r, b);  // 相对于图片  做比例转化
 //        Log.d("lylog"," mViewW "+mViewW+" mViewH "+mViewH);
 //        Log.d("lylog"," bw "+bw+" bh "+bh);
         Log.d("lylog", "  " + left + "  " + top + "  " + right + "  " + bottom);
 //        Log.d("lylog","  "+l+"  "+t+"  "+r+"  "+b);
 
+
+        //相对于视图做比例迁移
+        mRect1.left = left;
+        mRect1.right = right;
+        mRect1.top = top;
+        mRect1.bottom = bottom;
         super.onDraw(canvas);
 
 
@@ -292,10 +299,9 @@ public class MyView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         Log.d("lylog"," onSizeChanged mViewW "+mViewW+" mViewH "+mViewH);
         bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.test).copy(Bitmap.Config.ARGB_8888, true);
-        RectF rect = new RectF(0, 0, mViewW, mViewH);
+        RectF rect = new RectF(0, 0, bmp.getWidth(), bmp.getHeight());
         drawBmCanvas = new Canvas(bmp);
         drawBmCanvas.drawBitmap(bmp, null, rect, null);
-        bmp.recycle();
     }
 
     boolean judgePiontOnView(float x, float y) {
@@ -320,9 +326,6 @@ public class MyView extends View {
     }
 
     public static Bitmap getBitmap() {
-
-        return bmp;
+        return Bitmap.createBitmap(bmp, (int) mRect1.left, (int) mRect1.top, (int) mRect1.right - (int) mRect1.left, (int) mRect1.bottom - (int) mRect1.top);
     }
-
-
 }

@@ -66,7 +66,7 @@ public class MyView extends View {
     }
 
 
-    @SuppressLint("DrawAllocation")
+    @SuppressLint({"DrawAllocation", "ResourceAsColor"})
     @Override
     protected void onDraw(Canvas canvas) {
         Paint mKuangPaint;
@@ -114,7 +114,16 @@ public class MyView extends View {
         mRect1.top = top;
         mRect1.bottom = bottom;
         super.onDraw(canvas);
+        
+        Paint shadowP = new Paint();
+        shadowP.setStyle(Paint.Style.FILL);
+        shadowP.setColor(R.color.colorAccent);
+        canvas.drawRect(0,0,mViewW,top,shadowP);
 
+        canvas.drawRect(0,top,left,bottom,shadowP);
+        canvas.drawRect(right,top,mViewW,bottom,shadowP);
+
+        canvas.drawRect(0,bottom,mViewW,mViewH,shadowP);
 
     }
 
